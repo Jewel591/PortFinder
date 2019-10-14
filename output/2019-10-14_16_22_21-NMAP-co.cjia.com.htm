@@ -47,9 +47,9 @@
 <h2 id="summary" class="target">扫描概要</h2>
 <div class="target">
 <p>Nmap 版本：7.80</p>
-<p>Nmap命令：nmap -Pn --open -iR 10 --script=ftp-anon.nse,ftp-brute.nse,ftp-vuln-cve2010-4221.nse,ftp-vsftpd-backdoor.nse,ftp-proftpd-backdoor.nse,ssh-brute.nse,ssh-publickey-acceptance.nse,mysql-enum.nse,mysql-brute.nse,mysql-brute.nse,redis-info.nse,redis-brute.nse,memcached-info.nse,mongodb-brute.nse,mongodb-info.nse,ms-sql-brute.nse -vv -oX ./output/2019-09-24_15_21_50webæ¼æ´.xml</p>
-<p>开始时间：Tue Sep 24 15:31:59 2019</p>
-<p>结束时间：Tue Sep 24 16:21:32 2019</p>
+<p>Nmap命令：nmap -Pn --open -iL ./input/ips.txt -vv -oX ./tmp/2019-10-14_16_22_21-NMAP-co.cjia.com.xml</p>
+<p>开始时间：Mon Oct 14 16:22:21 2019</p>
+<p>结束时间：Mon Oct 14 16:22:39 2019</p>
 </div>
 <h2 id="scannedhosts" class="target">主机信息</h2>
 <div class="table-responsive"><table id="table-overview" class="table table-striped dataTable" role="grid">
@@ -60,7 +60,13 @@
 <th>开放TCP端口数</th>
 <th>开放UDP端口数</th>
 </tr></thead>
-<tbody></tbody>
+<tbody><tr>
+<td><span class="label label-success">up</span></td>
+<td>120.55.139.129</td>
+<td>co.cjia.com</td>
+<td>2</td>
+<td>0</td>
+</tr></tbody>
 </table></div>
 <script>
             $(document).ready(function() {			  
@@ -93,6 +99,51 @@
             });
 			
           </script><h2 id="onlinehosts" class="target">在线主机</h2>
+<div class="panel panel-default">
+<div class="panel-heading"><h3 class="panel-title">120.55.139.129 - co.cjia.com</h3></div>
+<div class="panel-body">
+<h4>Hostnames</h4>
+<ul><li>co.cjia.com (user)</li></ul>
+<h4>端口信息</h4>
+<div class="table-responsive"><table class="table table-bordered">
+<thead><tr>
+<th>端口</th>
+<th>协议</th>
+<th>状态</th>
+<th>探测手段</th>
+<th>服务</th>
+<th>组件</th>
+<th>版本</th>
+<th>附件信息</th>
+<th>CPE 信息</th>
+</tr></thead>
+<tbody>
+<tr class="success">
+<td title="Port">80</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">http</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">443</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">https</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
 <h2 id="openservices" class="target">服务信息</h2>
 <div class="table-responsive"><table id="table-services" class="table table-striped dataTable" role="grid">
 <thead><tr>
@@ -105,7 +156,28 @@
 <th>CPE</th>
 <th>附加信息</th>
 </tr></thead>
-<tbody></tbody>
+<tbody>
+<tr>
+<td>120.55.139.129 - co.cjia.com</td>
+<td>80</td>
+<td>tcp</td>
+<td>http</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>120.55.139.129 - co.cjia.com</td>
+<td>443</td>
+<td>tcp</td>
+<td>https</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
 </table></div>
 <script>		
             $(document).ready(function() {			  

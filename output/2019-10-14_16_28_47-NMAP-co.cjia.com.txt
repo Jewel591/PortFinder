@@ -1,0 +1,7 @@
+[+] ftp sevice open: 
+
+[+] ssh: 
+
+[+] web sevice open: 
+http://co.cjia.com:80
+https://co.cjia.com:443

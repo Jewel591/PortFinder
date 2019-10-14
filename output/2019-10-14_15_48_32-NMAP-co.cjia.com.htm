@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script><script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><style>
+          .target:before {
+            content: "";
+            display: block;
+            height: 50px;
+            margin: -20px 0 0;
+          }
+          @media only screen and (min-width:1900px) {
+            .container {
+              width: 1800px;
+              }
+          }
+          .footer {
+            margin-top:60px;
+            padding-top:60px;
+            width: 100%;
+            height: 180px;
+            background-color: #f5f5f5;
+          }
+        .navbar-right {
+		 float: right!important;
+		 margin-right: -15px;
+	   }
+        </style>
+<title>主机安全扫描报告</title>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top"><div class="container-fluid">
+<div class="navbar-header"><a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span></a></div>
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<ul class="nav navbar-nav">
+<li><a href="#summary">概要信息</a></li>
+<li><a href="#scannedhosts">主机信息</a></li>
+<li><a href="#onlinehosts">在线主机</a></li>
+<li><a href="#openservices">服务信息</a></li>
+</ul>
+<ul class="nav navbar-nav navbar-right"><li><a href="http://www.cchsi.cn">CFSS</a></li></ul>
+</div>
+</div></nav><div class="container">
+<h2 id="summary" class="target">扫描概要</h2>
+<div class="target">
+<p>Nmap 版本：7.80</p>
+<p>Nmap命令：nmap -Pn --open --script=vuln, -iL ./input/ips.txt -vv -oX ./tmp/2019-10-14_15_48_32-NMAP-co.cjia.com.xml</p>
+<p>开始时间：Mon Oct 14 15:48:33 2019</p>
+<p>结束时间：Mon Oct 14 15:52:09 2019</p>
+</div>
+<h2 id="scannedhosts" class="target">主机信息</h2>
+<div class="table-responsive"><table id="table-overview" class="table table-striped dataTable" role="grid">
+<thead><tr>
+<th>状态</th>
+<th>IP</th>
+<th>主机名</th>
+<th>开放TCP端口数</th>
+<th>开放UDP端口数</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><span class="label label-success">up</span></td>
+<td>120.55.139.129</td>
+<td>co.cjia.com</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="label label-success">up</span></td>
+<td>120.55.139.129</td>
+<td>fx.cjia.com</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="label label-success">up</span></td>
+<td>121.41.90.50</td>
+<td>device.cjia.com</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="label label-success">up</span></td>
+<td>116.62.94.190</td>
+<td>is.cjia.com</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="label label-success">up</span></td>
+<td>120.55.139.129</td>
+<td>s.cjia.com</td>
+<td>2</td>
+<td>0</td>
+</tr>
+</tbody>
+</table></div>
+<script>
+            $(document).ready(function() {			  
+			 $('#table-overview').DataTable({
+				 language: {
+					 "sProcessing": "处理中...",
+					 "sLengthMenu": "显示 _MENU_ 项结果",
+					 "sZeroRecords": "没有匹配结果",
+					 "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+					 "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+					 "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+					 "sInfoPostFix": "",
+					 "sSearch": "搜索:",
+					 "sUrl": "",
+					 "sEmptyTable": "表中数据为空",
+					 "sLoadingRecords": "载入中...",
+					 "sInfoThousands": ",",
+					 "oPaginate": {
+						 "sFirst": "首页",
+						 "sPrevious": "上页",
+						 "sNext": "下页",
+						 "sLast": "末页"
+					 },
+					 "oAria": {
+						 "sSortAscending": ": 以升序排列此列",
+						 "sSortDescending": ": 以降序排列此列"
+					 }
+				 }
+			 });			  
+            });
+			
+          </script><h2 id="onlinehosts" class="target">在线主机</h2>
+<div class="panel panel-default">
+<div class="panel-heading"><h3 class="panel-title">120.55.139.129 - co.cjia.com</h3></div>
+<div class="panel-body">
+<h4>Hostnames</h4>
+<ul><li>co.cjia.com (user)</li></ul>
+<h4>端口信息</h4>
+<div class="table-responsive"><table class="table table-bordered">
+<thead><tr>
+<th>端口</th>
+<th>协议</th>
+<th>状态</th>
+<th>探测手段</th>
+<th>服务</th>
+<th>组件</th>
+<th>版本</th>
+<th>附件信息</th>
+<th>CPE 信息</th>
+</tr></thead>
+<tbody>
+<tr class="success">
+<td title="Port">80</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">http</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">443</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">https</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading"><h3 class="panel-title">120.55.139.129 - fx.cjia.com</h3></div>
+<div class="panel-body">
+<h4>Hostnames</h4>
+<ul><li>fx.cjia.com (user)</li></ul>
+<h4>端口信息</h4>
+<div class="table-responsive"><table class="table table-bordered">
+<thead><tr>
+<th>端口</th>
+<th>协议</th>
+<th>状态</th>
+<th>探测手段</th>
+<th>服务</th>
+<th>组件</th>
+<th>版本</th>
+<th>附件信息</th>
+<th>CPE 信息</th>
+</tr></thead>
+<tbody>
+<tr class="success">
+<td title="Port">80</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">http</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">443</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">https</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading"><h3 class="panel-title">121.41.90.50 - device.cjia.com</h3></div>
+<div class="panel-body">
+<h4>Hostnames</h4>
+<ul><li>device.cjia.com (user)</li></ul>
+<h4>端口信息</h4>
+<div class="table-responsive"><table class="table table-bordered">
+<thead><tr>
+<th>端口</th>
+<th>协议</th>
+<th>状态</th>
+<th>探测手段</th>
+<th>服务</th>
+<th>组件</th>
+<th>版本</th>
+<th>附件信息</th>
+<th>CPE 信息</th>
+</tr></thead>
+<tbody>
+<tr class="success">
+<td title="Port">80</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">http</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>clamav-exec </td>
+<td colspan="7"><pre>ERROR: Script execution failed (use -d to debug) </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-aspnet-debug </td>
+<td colspan="7"><pre>ERROR: Script execution failed (use -d to debug) </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-csrf </td>
+<td colspan="7"><pre>Couldn't find any CSRF vulnerabilities. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-dombased-xss </td>
+<td colspan="7"><pre>Couldn't find any DOM based XSS. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-jsonp-detection </td>
+<td colspan="7"><pre>Couldn't find any JSONP endpoints. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-stored-xss </td>
+<td colspan="7"><pre>Couldn't find any stored XSS vulnerabilities. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-vuln-cve2014-3704 </td>
+<td colspan="7"><pre>ERROR: Script execution failed (use -d to debug) </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-wordpress-users </td>
+<td colspan="7"><pre>[Error] Wordpress installation was not found. We couldn't find wp-login.php </pre></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading"><h3 class="panel-title">116.62.94.190 - is.cjia.com</h3></div>
+<div class="panel-body">
+<h4>Hostnames</h4>
+<ul><li>is.cjia.com (user)</li></ul>
+<h4>端口信息</h4>
+<div class="table-responsive"><table class="table table-bordered">
+<thead><tr>
+<th>端口</th>
+<th>协议</th>
+<th>状态</th>
+<th>探测手段</th>
+<th>服务</th>
+<th>组件</th>
+<th>版本</th>
+<th>附件信息</th>
+<th>CPE 信息</th>
+</tr></thead>
+<tbody>
+<tr class="success">
+<td title="Port">80</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">http</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>clamav-exec </td>
+<td colspan="7"><pre>ERROR: Script execution failed (use -d to debug) </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-aspnet-debug </td>
+<td colspan="7"><pre>ERROR: Script execution failed (use -d to debug) </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-csrf </td>
+<td colspan="7"><pre>Couldn't find any CSRF vulnerabilities. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-dombased-xss </td>
+<td colspan="7"><pre>Couldn't find any DOM based XSS. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-jsonp-detection </td>
+<td colspan="7"><pre>Couldn't find any JSONP endpoints. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-stored-xss </td>
+<td colspan="7"><pre>Couldn't find any stored XSS vulnerabilities. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-vuln-cve2014-3704 </td>
+<td colspan="7"><pre>ERROR: Script execution failed (use -d to debug) </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-wordpress-users </td>
+<td colspan="7"><pre>[Error] Wordpress installation was not found. We couldn't find wp-login.php </pre></td>
+</tr>
+<tr class="success">
+<td title="Port">443</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">https</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>clamav-exec </td>
+<td colspan="7"><pre>ERROR: Script execution failed (use -d to debug) </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-csrf </td>
+<td colspan="7"><pre>Couldn't find any CSRF vulnerabilities. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-dombased-xss </td>
+<td colspan="7"><pre>Couldn't find any DOM based XSS. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-jsonp-detection </td>
+<td colspan="7"><pre>Couldn't find any JSONP endpoints. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-litespeed-sourcecode-download </td>
+<td colspan="7"><pre>Request with null byte did not work. This web server might not be vulnerable </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-stored-xss </td>
+<td colspan="7"><pre>Couldn't find any stored XSS vulnerabilities. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-wordpress-users </td>
+<td colspan="7"><pre>[Error] Wordpress installation was not found. We couldn't find wp-login.php </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>sslv2-drown </td>
+<td colspan="7"><pre>
+ </pre></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading"><h3 class="panel-title">120.55.139.129 - s.cjia.com</h3></div>
+<div class="panel-body">
+<h4>Hostnames</h4>
+<ul><li>s.cjia.com (user)</li></ul>
+<h4>端口信息</h4>
+<div class="table-responsive"><table class="table table-bordered">
+<thead><tr>
+<th>端口</th>
+<th>协议</th>
+<th>状态</th>
+<th>探测手段</th>
+<th>服务</th>
+<th>组件</th>
+<th>版本</th>
+<th>附件信息</th>
+<th>CPE 信息</th>
+</tr></thead>
+<tbody>
+<tr class="success">
+<td title="Port">80</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">http</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>clamav-exec </td>
+<td colspan="7"><pre>ERROR: Script execution failed (use -d to debug) </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>clamav-exec </td>
+<td colspan="7"><pre>ERROR: Script execution failed (use -d to debug) </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>clamav-exec </td>
+<td colspan="7"><pre>ERROR: Script execution failed (use -d to debug) </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-aspnet-debug </td>
+<td colspan="7"><pre>ERROR: Script execution failed (use -d to debug) </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-aspnet-debug </td>
+<td colspan="7"><pre>ERROR: Script execution failed (use -d to debug) </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-aspnet-debug </td>
+<td colspan="7"><pre>ERROR: Script execution failed (use -d to debug) </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-csrf </td>
+<td colspan="7"><pre>Couldn't find any CSRF vulnerabilities. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-csrf </td>
+<td colspan="7"><pre>Couldn't find any CSRF vulnerabilities. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-csrf </td>
+<td colspan="7"><pre>Couldn't find any CSRF vulnerabilities. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-dombased-xss </td>
+<td colspan="7"><pre>Couldn't find any DOM based XSS. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-dombased-xss </td>
+<td colspan="7"><pre>Couldn't find any DOM based XSS. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-dombased-xss </td>
+<td colspan="7"><pre>Couldn't find any DOM based XSS. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-jsonp-detection </td>
+<td colspan="7"><pre>Couldn't find any JSONP endpoints. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-jsonp-detection </td>
+<td colspan="7"><pre>Couldn't find any JSONP endpoints. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-jsonp-detection </td>
+<td colspan="7"><pre>Couldn't find any JSONP endpoints. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-stored-xss </td>
+<td colspan="7"><pre>Couldn't find any stored XSS vulnerabilities. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-stored-xss </td>
+<td colspan="7"><pre>Couldn't find any stored XSS vulnerabilities. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-stored-xss </td>
+<td colspan="7"><pre>Couldn't find any stored XSS vulnerabilities. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-vuln-cve2014-3704 </td>
+<td colspan="7"><pre>ERROR: Script execution failed (use -d to debug) </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-vuln-cve2014-3704 </td>
+<td colspan="7"><pre>ERROR: Script execution failed (use -d to debug) </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-vuln-cve2014-3704 </td>
+<td colspan="7"><pre>ERROR: Script execution failed (use -d to debug) </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-wordpress-users </td>
+<td colspan="7"><pre>[Error] Wordpress installation was not found. We couldn't find wp-login.php </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-wordpress-users </td>
+<td colspan="7"><pre>[Error] Wordpress installation was not found. We couldn't find wp-login.php </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-wordpress-users </td>
+<td colspan="7"><pre>[Error] Wordpress installation was not found. We couldn't find wp-login.php </pre></td>
+</tr>
+<tr class="success">
+<td title="Port">443</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">https</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>clamav-exec </td>
+<td colspan="7"><pre>ERROR: Script execution failed (use -d to debug) </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>clamav-exec </td>
+<td colspan="7"><pre>ERROR: Script execution failed (use -d to debug) </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>clamav-exec </td>
+<td colspan="7"><pre>ERROR: Script execution failed (use -d to debug) </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-aspnet-debug </td>
+<td colspan="7"><pre>ERROR: Script execution failed (use -d to debug) </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-cookie-flags </td>
+<td colspan="7"><pre>
+  /: 
+    JSESSIONID: 
+      secure flag not set and HTTPS in use </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-csrf </td>
+<td colspan="7"><pre>Couldn't find any CSRF vulnerabilities. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-csrf </td>
+<td colspan="7"><pre>Couldn't find any CSRF vulnerabilities. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-csrf </td>
+<td colspan="7"><pre>Couldn't find any CSRF vulnerabilities. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-dombased-xss </td>
+<td colspan="7"><pre>Couldn't find any DOM based XSS. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-dombased-xss </td>
+<td colspan="7"><pre>Couldn't find any DOM based XSS. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-dombased-xss </td>
+<td colspan="7"><pre>Couldn't find any DOM based XSS. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-enum </td>
+<td colspan="7"><pre>
+  /blog/: Blog
+  /weblog/: Blog
+  /weblogs/: Blog
+  /wordpress/: Blog
+  /wiki/: Wiki
+  /mediawiki/: Wiki
+  /tikiwiki/: Tikiwiki
+  /dsc/: Trend Micro Data Loss Prevention Virtual Appliance
+  /websvn/: WEBSVN Repository
+  /repos/: Possible code repository
+  /repo/: Possible code repository
+  /svn/: Possible code repository
+  /cvs/: Possible code repository
+  /login.stm: Belkin G Wireless Router
+  /tools_admin.php: D-Link DIR-300
+  /bsc_lan.php: D-Link DIR-300, DIR-320, DIR-615 revD
+  /Manage.tri: Linksys WRT54G2
+  /main_configure.cgi: Intellinet IP Camera
+  /awstatstotals.php: AWStats Totals
+  /egroupware/: eGroupware
+  /cal_search.php: ExtCalendar
+  /a_viewusers.php: Andys PHP Knowledgebase
+  /aphpkb/: Andys PHP Knowledgebase
+  /webedition/: Web Edition
+  /Examples/: Possible documentation files
+  /LightNEasy.php?do=login: LightNEasy
+  /channel_detail.php: DzTube
+  /ocsreports/: OCS Inventory
+  /vbseo.php: vBSEO
+  /forum/: Forum
+  /forums/: Forum
+  /smf/: Forum
+  /phpbb/: Forum
+  /manager/: Possible admin folder
+  /admin.php: Possible admin folder
+  /admin/: Possible admin folder
+  /administrator/: Possible admin folder
+  /moderator/: Possible admin folder
+  /webadmin/: Possible admin folder
+  /adminarea/: Possible admin folder
+  /bb-admin/: Possible admin folder
+  /adminLogin/: Possible admin folder
+  /admin_area/: Possible admin folder
+ </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-jsonp-detection </td>
+<td colspan="7"><pre>Couldn't find any JSONP endpoints. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-jsonp-detection </td>
+<td colspan="7"><pre>Couldn't find any JSONP endpoints. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-jsonp-detection </td>
+<td colspan="7"><pre>Couldn't find any JSONP endpoints. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-litespeed-sourcecode-download </td>
+<td colspan="7"><pre>Request with null byte did not work. This web server might not be vulnerable </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-litespeed-sourcecode-download </td>
+<td colspan="7"><pre>Request with null byte did not work. This web server might not be vulnerable </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-litespeed-sourcecode-download </td>
+<td colspan="7"><pre>Request with null byte did not work. This web server might not be vulnerable </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-stored-xss </td>
+<td colspan="7"><pre>Couldn't find any stored XSS vulnerabilities. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-stored-xss </td>
+<td colspan="7"><pre>Couldn't find any stored XSS vulnerabilities. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-stored-xss </td>
+<td colspan="7"><pre>Couldn't find any stored XSS vulnerabilities. </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-vuln-cve2010-0738 </td>
+<td colspan="7"><pre>
+  /jmx-console/: Authentication was not required
+ </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-vuln-cve2011-3192 </td>
+<td colspan="7"><pre>
+  VULNERABLE:
+  Apache byterange filter DoS
+    State: VULNERABLE
+    IDs:  BID:49303  CVE:CVE-2011-3192
+      The Apache web server is vulnerable to a denial of service attack when numerous
+      overlapping byte ranges are requested.
+    Disclosure date: 2011-08-19
+    References:
+      https://www.tenable.com/plugins/nessus/55976
+      https://www.securityfocus.com/bid/49303
+      https://seclists.org/fulldisclosure/2011/Aug/175
+      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3192
+ </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-wordpress-users </td>
+<td colspan="7"><pre>[Error] Wordpress installation was not found. We couldn't find wp-login.php </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-wordpress-users </td>
+<td colspan="7"><pre>[Error] Wordpress installation was not found. We couldn't find wp-login.php </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>http-wordpress-users </td>
+<td colspan="7"><pre>[Error] Wordpress installation was not found. We couldn't find wp-login.php </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>sslv2-drown </td>
+<td colspan="7"><pre>
+ </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>sslv2-drown </td>
+<td colspan="7"><pre>
+ </pre></td>
+</tr>
+<tr class="script">
+<td></td>
+<td>sslv2-drown </td>
+<td colspan="7"><pre>
+ </pre></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<h2 id="openservices" class="target">服务信息</h2>
+<div class="table-responsive"><table id="table-services" class="table table-striped dataTable" role="grid">
+<thead><tr>
+<th>IP</th>
+<th>端口</th>
+<th>协议</th>
+<th>服务</th>
+<th>组件</th>
+<th>版本</th>
+<th>CPE</th>
+<th>附加信息</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>120.55.139.129 - co.cjia.com</td>
+<td>80</td>
+<td>tcp</td>
+<td>http</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>120.55.139.129 - co.cjia.com</td>
+<td>443</td>
+<td>tcp</td>
+<td>https</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>120.55.139.129 - fx.cjia.com</td>
+<td>80</td>
+<td>tcp</td>
+<td>http</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>120.55.139.129 - fx.cjia.com</td>
+<td>443</td>
+<td>tcp</td>
+<td>https</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>121.41.90.50 - device.cjia.com</td>
+<td>80</td>
+<td>tcp</td>
+<td>http</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>116.62.94.190 - is.cjia.com</td>
+<td>80</td>
+<td>tcp</td>
+<td>http</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>116.62.94.190 - is.cjia.com</td>
+<td>443</td>
+<td>tcp</td>
+<td>https</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>120.55.139.129 - s.cjia.com</td>
+<td>80</td>
+<td>tcp</td>
+<td>http</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>120.55.139.129 - s.cjia.com</td>
+<td>443</td>
+<td>tcp</td>
+<td>https</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<script>		
+            $(document).ready(function() {			  
+			 $('#table-services').DataTable({
+				 language: {
+					 "sProcessing": "处理中...",
+					 "sLengthMenu": "显示 _MENU_ 项结果",
+					 "sZeroRecords": "没有匹配结果",
+					 "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+					 "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+					 "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+					 "sInfoPostFix": "",
+					 "sSearch": "搜索:",
+					 "sUrl": "",
+					 "sEmptyTable": "表中数据为空",
+					 "sLoadingRecords": "载入中...",
+					 "sInfoThousands": ",",
+					 "oPaginate": {
+						 "sFirst": "首页",
+						 "sPrevious": "上页",
+						 "sNext": "下页",
+						 "sLast": "末页"
+					 },
+					 "oAria": {
+						 "sSortAscending": ": 以升序排列此列",
+						 "sSortDescending": ": 以降序排列此列"
+					 }
+				 }
+			 });			  
+            });			
+          </script>
+</div>
+<footer class="footer"><div class="container"><p class="text-muted">
+              This Report Was Generated By <a href="http://www.cchsi.cn">CFSS Team</a>.<br></p></div></footer>
+</body>
+</html>

@@ -47,9 +47,9 @@
 <h2 id="summary" class="target">扫描概要</h2>
 <div class="target">
 <p>Nmap 版本：7.80</p>
-<p>Nmap命令：nmap -Pn --open -iL ./conf/ips.txt --script=ftp-anon.nse,ftp-brute.nse,ftp-vuln-cve2010-4221.nse,ftp-vsftpd-backdoor.nse,ftp-proftpd-backdoor.nse,ssh-brute.nse,ssh-publickey-acceptance.nse,mysql-enum.nse,mysql-brute.nse,mysql-brute.nse,redis-info.nse,redis-brute.nse,memcached-info.nse,mongodb-brute.nse,mongodb-info.nse,ms-sql-brute.nse,smb-brute,smb-vuln* -vv -oX ./output/2019-09-24_15_21_50ç³»ç»æ¼æ´.xml</p>
-<p>开始时间：Tue Sep 24 15:21:50 2019</p>
-<p>结束时间：Tue Sep 24 15:31:59 2019</p>
+<p>Nmap命令：nmap -Pn --open -iL ./input/ips.txt -vv -oX ./tmp/2019-10-14_16_25_13-NMAP-co.cjia.com.xml</p>
+<p>开始时间：Mon Oct 14 16:25:13 2019</p>
+<p>结束时间：Mon Oct 14 16:25:34 2019</p>
 </div>
 <h2 id="scannedhosts" class="target">主机信息</h2>
 <div class="table-responsive"><table id="table-overview" class="table table-striped dataTable" role="grid">
@@ -62,9 +62,9 @@
 </tr></thead>
 <tbody><tr>
 <td><span class="label label-success">up</span></td>
-<td>10.211.55.5</td>
-<td>ubuntu-linux.shared</td>
-<td>3</td>
+<td>120.55.139.129</td>
+<td>co.cjia.com</td>
+<td>2</td>
 <td>0</td>
 </tr></tbody>
 </table></div>
@@ -100,10 +100,10 @@
 			
           </script><h2 id="onlinehosts" class="target">在线主机</h2>
 <div class="panel panel-default">
-<div class="panel-heading"><h3 class="panel-title">10.211.55.5 - ubuntu-linux.shared</h3></div>
+<div class="panel-heading"><h3 class="panel-title">120.55.139.129 - co.cjia.com</h3></div>
 <div class="panel-body">
 <h4>Hostnames</h4>
-<ul><li>ubuntu-linux.shared (PTR)</li></ul>
+<ul><li>co.cjia.com (user)</li></ul>
 <h4>端口信息</h4>
 <div class="table-responsive"><table class="table table-bordered">
 <thead><tr>
@@ -119,47 +119,22 @@
 </tr></thead>
 <tbody>
 <tr class="success">
-<td title="Port">22</td>
+<td title="Port">80</td>
 <td title="Protocol">tcp</td>
 <td title="State">open</td>
 <td title="Reason">syn-ack</td>
-<td title="Service">ssh</td>
-<td title="Product"></td>
-<td title="Version"></td>
-<td title="Extra Info"></td>
-<td title="CPE Info"></td>
-</tr>
-<tr class="script">
-<td></td>
-<td>ssh-brute </td>
-<td colspan="7"><pre>
-  Accounts: 
-    liaolin:Zhc456654 - Valid credentials
-  Statistics: Performed 1503 guesses in 601 seconds, average tps: 2.6 </pre></td>
-</tr>
-<tr class="script">
-<td></td>
-<td>ssh-publickey-acceptance </td>
-<td colspan="7"><pre>
-  Accepted Public Keys: No public keys accepted </pre></td>
-</tr>
-<tr class="success">
-<td title="Port">139</td>
-<td title="Protocol">tcp</td>
-<td title="State">open</td>
-<td title="Reason">syn-ack</td>
-<td title="Service">netbios-ssn</td>
+<td title="Service">http</td>
 <td title="Product"></td>
 <td title="Version"></td>
 <td title="Extra Info"></td>
 <td title="CPE Info"></td>
 </tr>
 <tr class="success">
-<td title="Port">445</td>
+<td title="Port">443</td>
 <td title="Protocol">tcp</td>
 <td title="State">open</td>
 <td title="Reason">syn-ack</td>
-<td title="Service">microsoft-ds</td>
+<td title="Service">https</td>
 <td title="Product"></td>
 <td title="Version"></td>
 <td title="Extra Info"></td>
@@ -167,23 +142,6 @@
 </tr>
 </tbody>
 </table></div>
-<h4>主机 脚本</h4>
-<h5>smb-brute</h5>
-<pre style="white-space:pre-wrap; word-wrap:break-word;">ERROR: Script execution failed (use -d to debug)</pre>
-<h5>smb-vuln-ms10-054</h5>
-<pre style="white-space:pre-wrap; word-wrap:break-word;">false</pre>
-<h5>smb-vuln-ms10-061</h5>
-<pre style="white-space:pre-wrap; word-wrap:break-word;">false</pre>
-<h5>smb-vuln-regsvc-dos</h5>
-<pre style="white-space:pre-wrap; word-wrap:break-word;">
-  VULNERABLE:
-  Service regsvc in Microsoft Windows systems vulnerable to denial of service
-    State: VULNERABLE
-      The service regsvc in Microsoft Windows 2000 systems is vulnerable to denial of service caused by a null deference
-      pointer. This script will crash the service if it is vulnerable. This vulnerability was discovered by Ron Bowes
-      while working on smb-enum-sessions.
-          
-</pre>
 </div>
 </div>
 <h2 id="openservices" class="target">服务信息</h2>
@@ -200,30 +158,20 @@
 </tr></thead>
 <tbody>
 <tr>
-<td>10.211.55.5 - ubuntu-linux.shared</td>
-<td>22</td>
+<td>120.55.139.129 - co.cjia.com</td>
+<td>80</td>
 <td>tcp</td>
-<td>ssh</td>
+<td>http</td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>10.211.55.5 - ubuntu-linux.shared</td>
-<td>139</td>
+<td>120.55.139.129 - co.cjia.com</td>
+<td>443</td>
 <td>tcp</td>
-<td>netbios-ssn</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>10.211.55.5 - ubuntu-linux.shared</td>
-<td>445</td>
-<td>tcp</td>
-<td>microsoft-ds</td>
+<td>https</td>
 <td></td>
 <td></td>
 <td></td>
