@@ -1,0 +1,5 @@
+pop.cjia.com
+go.cjia.com
+imap.cjia.com
+m.cjia.com
+payment.cjia.com

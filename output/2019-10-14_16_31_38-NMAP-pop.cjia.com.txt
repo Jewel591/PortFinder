@@ -1,0 +1,21 @@
+[+] ftp sevice open: 
+ftp://m.cjia.com:8021
+
+[+] ssh: 
+
+[+] web sevice open: 
+http://pop.cjia.com:80
+https://pop.cjia.com:443
+http://go.cjia.com:80
+https://go.cjia.com:443
+http://m.cjia.com:80
+https://m.cjia.com:443
+http://m.cjia.com:808
+https://m.cjia.com:7443
+http://m.cjia.com:8000
+http://m.cjia.com:8008
+http://m.cjia.com:8080
+http://m.cjia.com:8088
+https://m.cjia.com:8443
+http://payment.cjia.com:80
+https://payment.cjia.com:443

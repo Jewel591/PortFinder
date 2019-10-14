@@ -1,0 +1,2102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script><script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><style>
+          .target:before {
+            content: "";
+            display: block;
+            height: 50px;
+            margin: -20px 0 0;
+          }
+          @media only screen and (min-width:1900px) {
+            .container {
+              width: 1800px;
+              }
+          }
+          .footer {
+            margin-top:60px;
+            padding-top:60px;
+            width: 100%;
+            height: 180px;
+            background-color: #f5f5f5;
+          }
+        .navbar-right {
+		 float: right!important;
+		 margin-right: -15px;
+	   }
+        </style>
+<title>主机安全扫描报告</title>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top"><div class="container-fluid">
+<div class="navbar-header"><a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span></a></div>
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<ul class="nav navbar-nav">
+<li><a href="#summary">概要信息</a></li>
+<li><a href="#scannedhosts">主机信息</a></li>
+<li><a href="#onlinehosts">在线主机</a></li>
+<li><a href="#openservices">服务信息</a></li>
+</ul>
+<ul class="nav navbar-nav navbar-right"><li><a href="http://www.cchsi.cn">CFSS</a></li></ul>
+</div>
+</div></nav><div class="container">
+<h2 id="summary" class="target">扫描概要</h2>
+<div class="target">
+<p>Nmap 版本：7.80</p>
+<p>Nmap命令：nmap -Pn --open -iL ./input/ips.txt -vv -oX ./tmp/2019-10-14_16_31_38-NMAP-pop.cjia.com.xml</p>
+<p>开始时间：Mon Oct 14 16:31:38 2019</p>
+<p>结束时间：Mon Oct 14 16:32:09 2019</p>
+</div>
+<h2 id="scannedhosts" class="target">主机信息</h2>
+<div class="table-responsive"><table id="table-overview" class="table table-striped dataTable" role="grid">
+<thead><tr>
+<th>状态</th>
+<th>IP</th>
+<th>主机名</th>
+<th>开放TCP端口数</th>
+<th>开放UDP端口数</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><span class="label label-success">up</span></td>
+<td>113.96.208.92</td>
+<td>pop.cjia.com</td>
+<td>10</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="label label-success">up</span></td>
+<td>120.55.139.129</td>
+<td>go.cjia.com</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="label label-success">up</span></td>
+<td>113.96.232.106</td>
+<td>imap.cjia.com</td>
+<td>8</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="label label-success">up</span></td>
+<td>47.96.194.42</td>
+<td>m.cjia.com</td>
+<td>64</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="label label-success">up</span></td>
+<td>120.55.139.129</td>
+<td>payment.cjia.com</td>
+<td>2</td>
+<td>0</td>
+</tr>
+</tbody>
+</table></div>
+<script>
+            $(document).ready(function() {			  
+			 $('#table-overview').DataTable({
+				 language: {
+					 "sProcessing": "处理中...",
+					 "sLengthMenu": "显示 _MENU_ 项结果",
+					 "sZeroRecords": "没有匹配结果",
+					 "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+					 "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+					 "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+					 "sInfoPostFix": "",
+					 "sSearch": "搜索:",
+					 "sUrl": "",
+					 "sEmptyTable": "表中数据为空",
+					 "sLoadingRecords": "载入中...",
+					 "sInfoThousands": ",",
+					 "oPaginate": {
+						 "sFirst": "首页",
+						 "sPrevious": "上页",
+						 "sNext": "下页",
+						 "sLast": "末页"
+					 },
+					 "oAria": {
+						 "sSortAscending": ": 以升序排列此列",
+						 "sSortDescending": ": 以降序排列此列"
+					 }
+				 }
+			 });			  
+            });
+			
+          </script><h2 id="onlinehosts" class="target">在线主机</h2>
+<div class="panel panel-default">
+<div class="panel-heading"><h3 class="panel-title">113.96.208.92 - pop.cjia.com</h3></div>
+<div class="panel-body">
+<h4>Hostnames</h4>
+<ul><li>pop.cjia.com (user)</li></ul>
+<h4>端口信息</h4>
+<div class="table-responsive"><table class="table table-bordered">
+<thead><tr>
+<th>端口</th>
+<th>协议</th>
+<th>状态</th>
+<th>探测手段</th>
+<th>服务</th>
+<th>组件</th>
+<th>版本</th>
+<th>附件信息</th>
+<th>CPE 信息</th>
+</tr></thead>
+<tbody>
+<tr class="success">
+<td title="Port">25</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">smtp</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">80</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">http</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">110</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">pop3</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">143</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">imap</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">443</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">https</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">465</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">smtps</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">587</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">submission</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">843</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">unknown</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">993</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">imaps</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">995</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">pop3s</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading"><h3 class="panel-title">120.55.139.129 - go.cjia.com</h3></div>
+<div class="panel-body">
+<h4>Hostnames</h4>
+<ul><li>go.cjia.com (user)</li></ul>
+<h4>端口信息</h4>
+<div class="table-responsive"><table class="table table-bordered">
+<thead><tr>
+<th>端口</th>
+<th>协议</th>
+<th>状态</th>
+<th>探测手段</th>
+<th>服务</th>
+<th>组件</th>
+<th>版本</th>
+<th>附件信息</th>
+<th>CPE 信息</th>
+</tr></thead>
+<tbody>
+<tr class="success">
+<td title="Port">80</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">http</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">443</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">https</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading"><h3 class="panel-title">113.96.232.106 - imap.cjia.com</h3></div>
+<div class="panel-body">
+<h4>Hostnames</h4>
+<ul><li>imap.cjia.com (user)</li></ul>
+<h4>端口信息</h4>
+<div class="table-responsive"><table class="table table-bordered">
+<thead><tr>
+<th>端口</th>
+<th>协议</th>
+<th>状态</th>
+<th>探测手段</th>
+<th>服务</th>
+<th>组件</th>
+<th>版本</th>
+<th>附件信息</th>
+<th>CPE 信息</th>
+</tr></thead>
+<tbody>
+<tr class="success">
+<td title="Port">25</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">smtp</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">110</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">pop3</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">143</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">imap</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">465</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">smtps</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">587</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">submission</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">843</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">unknown</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">993</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">imaps</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">995</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">pop3s</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading"><h3 class="panel-title">47.96.194.42 - m.cjia.com</h3></div>
+<div class="panel-body">
+<h4>Hostnames</h4>
+<ul><li>m.cjia.com (user)</li></ul>
+<h4>端口信息</h4>
+<div class="table-responsive"><table class="table table-bordered">
+<thead><tr>
+<th>端口</th>
+<th>协议</th>
+<th>状态</th>
+<th>探测手段</th>
+<th>服务</th>
+<th>组件</th>
+<th>版本</th>
+<th>附件信息</th>
+<th>CPE 信息</th>
+</tr></thead>
+<tbody>
+<tr class="success">
+<td title="Port">53</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">domain</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">80</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">http</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">81</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">hosts2-ns</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">82</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">xfer</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">83</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">mit-ml-dev</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">84</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">ctf</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">88</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">kerberos-sec</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">89</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">su-mit-tg</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">443</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">https</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">800</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">mdbs_daemon</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">808</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">ccproxy-http</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">1000</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">cadlock</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">1090</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">ff-fms</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">3333</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">dec-notes</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">4443</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">pharos</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">5000</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">upnp</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">5222</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">xmpp-client</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">6001</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">X11:1</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">6666</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">irc</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">7000</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">afs3-fileserver</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">7001</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">afs3-callback</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">7002</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">afs3-prserver</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">7004</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">afs3-kaserver</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">7019</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">doceri-ctl</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">7025</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">vmsvc-2</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">7070</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">realserver</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">7443</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">oracleas-https</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">7777</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">cbt</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">7800</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">asr</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">8000</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">http-alt</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">8001</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">vcom-tunnel</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">8002</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">teradataordbms</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">8008</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">http</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">8009</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">ajp13</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">8021</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">ftp-proxy</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">8022</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">oa-system</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">8080</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">http-proxy</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">8081</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">blackice-icecap</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">8082</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">blackice-alerts</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">8083</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">us-srv</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">8084</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">unknown</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">8085</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">unknown</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">8086</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">d-s-n</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">8087</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">simplifymedia</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">8088</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">radan-http</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">8089</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">unknown</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">8090</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">opsmessaging</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">8181</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">intermapper</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">8443</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">https-alt</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">8800</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">sunwebadmin</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">8888</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">sun-answerbook</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">9000</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">cslistener</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">9001</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">tor-orport</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">9002</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">dynamid</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">9003</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">unknown</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">9080</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">glrpc</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">9081</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">cisco-aqos</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">9200</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">wap-wsp</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">9207</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">wap-vcal-s</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">9898</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">monkeycom</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">9929</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">nping-echo</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">9999</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">abyss</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">10000</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">snet-sensor-mgmt</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">10001</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">scp-config</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading"><h3 class="panel-title">120.55.139.129 - payment.cjia.com</h3></div>
+<div class="panel-body">
+<h4>Hostnames</h4>
+<ul><li>payment.cjia.com (user)</li></ul>
+<h4>端口信息</h4>
+<div class="table-responsive"><table class="table table-bordered">
+<thead><tr>
+<th>端口</th>
+<th>协议</th>
+<th>状态</th>
+<th>探测手段</th>
+<th>服务</th>
+<th>组件</th>
+<th>版本</th>
+<th>附件信息</th>
+<th>CPE 信息</th>
+</tr></thead>
+<tbody>
+<tr class="success">
+<td title="Port">80</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">http</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+<tr class="success">
+<td title="Port">443</td>
+<td title="Protocol">tcp</td>
+<td title="State">open</td>
+<td title="Reason">syn-ack</td>
+<td title="Service">https</td>
+<td title="Product"></td>
+<td title="Version"></td>
+<td title="Extra Info"></td>
+<td title="CPE Info"></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<h2 id="openservices" class="target">服务信息</h2>
+<div class="table-responsive"><table id="table-services" class="table table-striped dataTable" role="grid">
+<thead><tr>
+<th>IP</th>
+<th>端口</th>
+<th>协议</th>
+<th>服务</th>
+<th>组件</th>
+<th>版本</th>
+<th>CPE</th>
+<th>附加信息</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>113.96.208.92 - pop.cjia.com</td>
+<td>25</td>
+<td>tcp</td>
+<td>smtp</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>113.96.208.92 - pop.cjia.com</td>
+<td>80</td>
+<td>tcp</td>
+<td>http</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>113.96.208.92 - pop.cjia.com</td>
+<td>110</td>
+<td>tcp</td>
+<td>pop3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>113.96.208.92 - pop.cjia.com</td>
+<td>143</td>
+<td>tcp</td>
+<td>imap</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>113.96.208.92 - pop.cjia.com</td>
+<td>443</td>
+<td>tcp</td>
+<td>https</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>113.96.208.92 - pop.cjia.com</td>
+<td>465</td>
+<td>tcp</td>
+<td>smtps</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>113.96.208.92 - pop.cjia.com</td>
+<td>587</td>
+<td>tcp</td>
+<td>submission</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>113.96.208.92 - pop.cjia.com</td>
+<td>843</td>
+<td>tcp</td>
+<td>unknown</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>113.96.208.92 - pop.cjia.com</td>
+<td>993</td>
+<td>tcp</td>
+<td>imaps</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>113.96.208.92 - pop.cjia.com</td>
+<td>995</td>
+<td>tcp</td>
+<td>pop3s</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>120.55.139.129 - go.cjia.com</td>
+<td>80</td>
+<td>tcp</td>
+<td>http</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>120.55.139.129 - go.cjia.com</td>
+<td>443</td>
+<td>tcp</td>
+<td>https</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>113.96.232.106 - imap.cjia.com</td>
+<td>25</td>
+<td>tcp</td>
+<td>smtp</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>113.96.232.106 - imap.cjia.com</td>
+<td>110</td>
+<td>tcp</td>
+<td>pop3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>113.96.232.106 - imap.cjia.com</td>
+<td>143</td>
+<td>tcp</td>
+<td>imap</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>113.96.232.106 - imap.cjia.com</td>
+<td>465</td>
+<td>tcp</td>
+<td>smtps</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>113.96.232.106 - imap.cjia.com</td>
+<td>587</td>
+<td>tcp</td>
+<td>submission</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>113.96.232.106 - imap.cjia.com</td>
+<td>843</td>
+<td>tcp</td>
+<td>unknown</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>113.96.232.106 - imap.cjia.com</td>
+<td>993</td>
+<td>tcp</td>
+<td>imaps</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>113.96.232.106 - imap.cjia.com</td>
+<td>995</td>
+<td>tcp</td>
+<td>pop3s</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>53</td>
+<td>tcp</td>
+<td>domain</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>80</td>
+<td>tcp</td>
+<td>http</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>81</td>
+<td>tcp</td>
+<td>hosts2-ns</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>82</td>
+<td>tcp</td>
+<td>xfer</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>83</td>
+<td>tcp</td>
+<td>mit-ml-dev</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>84</td>
+<td>tcp</td>
+<td>ctf</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>88</td>
+<td>tcp</td>
+<td>kerberos-sec</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>89</td>
+<td>tcp</td>
+<td>su-mit-tg</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>443</td>
+<td>tcp</td>
+<td>https</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>800</td>
+<td>tcp</td>
+<td>mdbs_daemon</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>808</td>
+<td>tcp</td>
+<td>ccproxy-http</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>1000</td>
+<td>tcp</td>
+<td>cadlock</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>1090</td>
+<td>tcp</td>
+<td>ff-fms</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>3333</td>
+<td>tcp</td>
+<td>dec-notes</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>4443</td>
+<td>tcp</td>
+<td>pharos</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>5000</td>
+<td>tcp</td>
+<td>upnp</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>5222</td>
+<td>tcp</td>
+<td>xmpp-client</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>6001</td>
+<td>tcp</td>
+<td>X11:1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>6666</td>
+<td>tcp</td>
+<td>irc</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>7000</td>
+<td>tcp</td>
+<td>afs3-fileserver</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>7001</td>
+<td>tcp</td>
+<td>afs3-callback</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>7002</td>
+<td>tcp</td>
+<td>afs3-prserver</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>7004</td>
+<td>tcp</td>
+<td>afs3-kaserver</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>7019</td>
+<td>tcp</td>
+<td>doceri-ctl</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>7025</td>
+<td>tcp</td>
+<td>vmsvc-2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>7070</td>
+<td>tcp</td>
+<td>realserver</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>7443</td>
+<td>tcp</td>
+<td>oracleas-https</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>7777</td>
+<td>tcp</td>
+<td>cbt</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>7800</td>
+<td>tcp</td>
+<td>asr</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>8000</td>
+<td>tcp</td>
+<td>http-alt</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>8001</td>
+<td>tcp</td>
+<td>vcom-tunnel</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>8002</td>
+<td>tcp</td>
+<td>teradataordbms</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>8008</td>
+<td>tcp</td>
+<td>http</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>8009</td>
+<td>tcp</td>
+<td>ajp13</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>8021</td>
+<td>tcp</td>
+<td>ftp-proxy</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>8022</td>
+<td>tcp</td>
+<td>oa-system</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>8080</td>
+<td>tcp</td>
+<td>http-proxy</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>8081</td>
+<td>tcp</td>
+<td>blackice-icecap</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>8082</td>
+<td>tcp</td>
+<td>blackice-alerts</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>8083</td>
+<td>tcp</td>
+<td>us-srv</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>8084</td>
+<td>tcp</td>
+<td>unknown</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>8085</td>
+<td>tcp</td>
+<td>unknown</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>8086</td>
+<td>tcp</td>
+<td>d-s-n</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>8087</td>
+<td>tcp</td>
+<td>simplifymedia</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>8088</td>
+<td>tcp</td>
+<td>radan-http</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>8089</td>
+<td>tcp</td>
+<td>unknown</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>8090</td>
+<td>tcp</td>
+<td>opsmessaging</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>8181</td>
+<td>tcp</td>
+<td>intermapper</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>8443</td>
+<td>tcp</td>
+<td>https-alt</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>8800</td>
+<td>tcp</td>
+<td>sunwebadmin</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>8888</td>
+<td>tcp</td>
+<td>sun-answerbook</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>9000</td>
+<td>tcp</td>
+<td>cslistener</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>9001</td>
+<td>tcp</td>
+<td>tor-orport</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>9002</td>
+<td>tcp</td>
+<td>dynamid</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>9003</td>
+<td>tcp</td>
+<td>unknown</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>9080</td>
+<td>tcp</td>
+<td>glrpc</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>9081</td>
+<td>tcp</td>
+<td>cisco-aqos</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>9200</td>
+<td>tcp</td>
+<td>wap-wsp</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>9207</td>
+<td>tcp</td>
+<td>wap-vcal-s</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>9898</td>
+<td>tcp</td>
+<td>monkeycom</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>9929</td>
+<td>tcp</td>
+<td>nping-echo</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>9999</td>
+<td>tcp</td>
+<td>abyss</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>10000</td>
+<td>tcp</td>
+<td>snet-sensor-mgmt</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47.96.194.42 - m.cjia.com</td>
+<td>10001</td>
+<td>tcp</td>
+<td>scp-config</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>120.55.139.129 - payment.cjia.com</td>
+<td>80</td>
+<td>tcp</td>
+<td>http</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>120.55.139.129 - payment.cjia.com</td>
+<td>443</td>
+<td>tcp</td>
+<td>https</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<script>		
+            $(document).ready(function() {			  
+			 $('#table-services').DataTable({
+				 language: {
+					 "sProcessing": "处理中...",
+					 "sLengthMenu": "显示 _MENU_ 项结果",
+					 "sZeroRecords": "没有匹配结果",
+					 "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+					 "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+					 "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+					 "sInfoPostFix": "",
+					 "sSearch": "搜索:",
+					 "sUrl": "",
+					 "sEmptyTable": "表中数据为空",
+					 "sLoadingRecords": "载入中...",
+					 "sInfoThousands": ",",
+					 "oPaginate": {
+						 "sFirst": "首页",
+						 "sPrevious": "上页",
+						 "sNext": "下页",
+						 "sLast": "末页"
+					 },
+					 "oAria": {
+						 "sSortAscending": ": 以升序排列此列",
+						 "sSortDescending": ": 以降序排列此列"
+					 }
+				 }
+			 });			  
+            });			
+          </script>
+</div>
+<footer class="footer"><div class="container"><p class="text-muted">
+              This Report Was Generated By <a href="http://www.cchsi.cn">CFSS Team</a>.<br></p></div></footer>
+</body>
+</html>
